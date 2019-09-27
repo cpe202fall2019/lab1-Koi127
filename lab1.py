@@ -49,6 +49,3 @@ def bin_search(target, low, high, int_list):  # must use recursion
         return bin_search(target, low, high, int_list[mid+1:])
 
 
-# if __name__ == "__main__":
-#     list1 = [12, 5, 7]
-#     print(reverse_rec(list1))
