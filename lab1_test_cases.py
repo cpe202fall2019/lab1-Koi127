@@ -20,7 +20,7 @@ class TestLab1(unittest.TestCase):
         none_list = None
         self.assertEqual(reverse_rec([1, 2, 3]), [3, 2, 1])  # check all positive
         self.assertEqual(reverse_rec([-1, 2, 3, -10]), [-10, 3, 2, -1])  # check array with neg number
-        self.assertEqual(reverse_rec([]), [])  # check empty array
+        self.assertEqual(reverse_rec([]), None)  # check empty array
         with self.assertRaises(ValueError):  # used to check for exception
             reverse_rec(none_list)
 
@@ -33,13 +33,15 @@ class TestLab1(unittest.TestCase):
         self.assertEqual(bin_search(4, 0, len(list_val2)-1, list_val2), None)  # check empty array
         list_val3 = None
         with self.assertRaises(ValueError):  # used to check for exception
-            max_list_iter(list_val3)
-        list_val4 = [2, 2, 2, 2, 2, 2]
-        self.assertEqual(bin_search(2, 0, len(list_val4)-1, list_val4), 3)  # check array with same number
+            bin_search(0, 0, 0, list_val3)
+        list_val4 = [3, 3, 3, 3, 3, 3]
+        self.assertEqual(bin_search(3, 0, len(list_val4)-1, list_val4), 3)  # check array with same number
         list_val5 = [-6, -4]
         self.assertEqual(bin_search(-6, 0, len(list_val5)-1, list_val5), 0)  # check array with 2 neg number
         list_val6 = [-6]
         self.assertEqual(bin_search(-6, 0, len(list_val6) - 1, list_val6), 0)  # check array with 1 neg number
+        list_val7 = [-6, 0, 8, 9]
+        self.assertEqual(bin_search(5, 0, len(list_val7) - 1, list_val7), None)  # check if not found
 
 
 if __name__ == "__main__":
